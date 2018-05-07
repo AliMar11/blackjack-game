@@ -1,0 +1,96 @@
+body{
+background-color: #bc1010 !important; 
+background-color:#def;
+background-image: radial-gradient(closest-side, transparent 98%, rgba(171,15,11) 99%),
+radial-gradient(closest-side, transparent 98%, rgba(171,15,11) 99%);
+background-size:80px 80px;
+background-position:0 0, 40px 40px;
+}
+
+.app-container{
+  position: relative;
+  text-align: center;
+  margin: auto; 
+}
+.title-container{
+  position: relative;
+  width:100%;
+  /*left: 12%;*/
+  margin-left: 12%;
+  /*border: double;*/
+  /*border-image-source: 'https://www.amazing.casino/';*/
+  /*border-image: url('https://www.amazing.casino/') 30 round;*/
+  /*border-image-source: url('www.amazing.casino/');*/
+
+  text-align: center;
+  font-family: Impact, Charcoal, sans-serif;
+}
+
+.oval-table-container{
+  position: relative;
+  margin-left: 12%;
+  height: 700px;
+  width: 1000px;
+  background-color: #228B22;
+  border-radius: 50%;
+
+}
+
+.app-container{
+  display: inline-block;
+  text-align: center;  
+}
+
+.button-container{
+    position: absolute;
+    top: 45%;
+    width: 100px;  
+    height: 35px;
+    left: 45%;
+
+    font-family: Impact, Charcoal, sans-serif;
+    border-radius: 2px;
+}
+
+.card-image-container{
+  display: inline-block;
+  text-align: center;
+}
+
+.card-image-container img {
+  width: 60px;
+  padding-bottom: 10px;
+  padding-right: 3px;
+  padding-top: 5px;
+}
+
+.player-A-container{
+  position: absolute;
+  transform: rotate(90deg);
+  left: 107px;
+    top: 269px;
+} 
+
+.player-B-container{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 50px;
+} 
+
+.player-C-container{
+  position: absolute;
+  transform: rotate(-90deg);
+  right: 107px;
+    top: 269px;
+}  
+
+.player-name-container{
+  font-size: 20px;
+}
+
+.player-score-container{
+      font-size: 25px;
+}

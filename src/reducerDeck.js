@@ -1,7 +1,7 @@
-// Diamonds => D
 // Hearts => H, 
 // Spades => S, 
 // Clubs  => C, 
+// Diamonds => D
 export default function () {
 	return ([
 		'H-ace', 

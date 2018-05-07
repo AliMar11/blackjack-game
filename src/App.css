@@ -12,17 +12,13 @@ background-position:0 0, 40px 40px;
   text-align: center;
   margin: auto; 
 }
+
 .title-container{
   position: relative;
   width:100%;
-  /*left: 12%;*/
   margin-left: 12%;
-  /*border: double;*/
-  /*border-image-source: 'https://www.amazing.casino/';*/
-  /*border-image: url('https://www.amazing.casino/') 30 round;*/
-  /*border-image-source: url('www.amazing.casino/');*/
-
   text-align: center;
+  font-size: 3vw;
   font-family: Impact, Charcoal, sans-serif;
 }
 
@@ -33,7 +29,6 @@ background-position:0 0, 40px 40px;
   width: 1000px;
   background-color: #228B22;
   border-radius: 50%;
-
 }
 
 .app-container{
@@ -43,12 +38,12 @@ background-position:0 0, 40px 40px;
 
 .button-container{
     position: absolute;
-    top: 45%;
-    width: 100px;  
-    height: 35px;
-    left: 45%;
-
+    top: 39%;
+    width: 80px;  
+    height: 40px;
+    left: 42%;
     font-family: Impact, Charcoal, sans-serif;
+    font-size: 1.2vw;
     border-radius: 2px;
 }
 
@@ -89,7 +84,8 @@ background-position:0 0, 40px 40px;
 
 .player-name-container{
   font-size: 20px;
-}
+  font-family: Sans-serif;
+  font-weight: bold}
 
 .player-score-container{
       font-size: 25px;

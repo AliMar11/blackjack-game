@@ -11,33 +11,25 @@ class GameMananger extends Component {
 		super(props);
 		this.turnsNeeded = 6;
 		this.currentDeck = DeckReducer();
-		//this.activePlayers = [];
 
-//each player w/ a key of playerId and value of hand which get score from
+//each player gets a key of playerId and value of hand which is where we hold their score
 		this.players = {
 			A: [],
 			B: [],
 			C: [],
 		};
 		
-// State of score used to update UI
+//state of score used to update UI
 		 this.state = {
 			A: 0,
 			B: 0,
 			C: 0,
-		}
-		 
-		this.startGame = this.startGame.bind(this);
-		this.handleScore = this.handleScore.bind(this); 
-		this.roundSetup = this.roundSetup.bind(this);
-		this.deleteCard = this.deleteCard.bind(this);
+		}	
+
 		this.givePlayerCard = this.givePlayerCard.bind(this);
-		this.nextTurn = this.nextTurn.bind(this);
-		this.dealCard = this.dealCard.bind(this);
-		this.decideNextRoundPlayers = this.decideNextRoundPlayers.bind(this);
-		this.renderWinner = this.renderWinner.bind(this);
 	}
 
+//reset game, count number of players for the new game and hand everyone 2 cards.
 	startGame(){
 		this.resetGame();
 		const playersInGameKeys = ['A', 'B', 'C'];
@@ -48,12 +40,14 @@ class GameMananger extends Component {
 			this.givePlayerCard(currentPlayer, drawnCard);
 			this.turnsNeeded--;
 		}
-		console.log("Game ready");
+
+//if all player hand => 21, no one needs another turn, so end the game		
 		if (this.checkForEnd()) {
 			this.turnsNeeded = -1;
 		}
 	}
 
+//calculate player score, check for aces and make ace == 11 points if it won't cause hand > 21
 	handleScore(cards) {
 		let sum = 0;
 		let aceCard = 'ace';
@@ -68,7 +62,6 @@ class GameMananger extends Component {
 			}
 		      sum += cardValue;
 		}
-
 				if (hasAce && (sum + 10) <=  21){
 						sum+= 10;	
 				  }
@@ -77,6 +70,7 @@ class GameMananger extends Component {
 	
 	}
 
+//check if players need another card
 	vaildPlayers() {
 		let alivePlayers = [];
 		for (var player in this.players) {
@@ -87,6 +81,7 @@ class GameMananger extends Component {
 		return alivePlayers;
 	}
 
+//if all player hand => 21, no one needs another turn, so end the game
 	checkForEnd() {
 		let gameHasEnded = false;
 		const currentPlayers = this.players;
@@ -116,6 +111,7 @@ class GameMananger extends Component {
 	    });
 	}
 
+//deal a new card from deck, then remove the selected card from deck 
 	dealCard() {
 		let newCard = null;
 		if (this.currentDeck.length > 0) {
@@ -131,6 +127,7 @@ class GameMananger extends Component {
 		this.currentDeck.splice(index, 1);
 	}
 
+//decide, based on current score, if players need a new card
 	decideNextRoundPlayers() {
 		for (var player in this.players) {
 			if (this.players[player] && this.handleScore(this.players[player]) < 16) {
@@ -139,22 +136,24 @@ class GameMananger extends Component {
 		}
 	}
 
+//deal a new card and give it to player
 	nextTurn(playerId) {
 		const additionalCard = this.dealCard();
 		this.givePlayerCard(playerId, additionalCard);
 	}
 
+//set up the next round, where we check for players that need another card
 	roundSetup() {
 		console.log('new round');
 		this.decideNextRoundPlayers();
 		const alivePlayers = this.vaildPlayers();
 		for (var i = 0; i < alivePlayers.length; i++) {
 			const playerId = alivePlayers[i];
-			//const playerScore = this.handleScore(this.players[playerId])
 		 	this.nextTurn(playerId);
 			this.turnsNeeded--;
 		}
 
+//if all player hand => 21, no one needs another turn, so end the game
 		if (this.checkForEnd()) {
 			this.turnsNeeded = -1;
 			console.log('hitting playerFinalScore');
@@ -166,14 +165,13 @@ class GameMananger extends Component {
 		this.currentDeck = DeckReducer();
 		this.activePlayers = [];
 
-//each player w/ a key of playerId and value of hand which get score from
+//reset players hand and player score
 		this.players = {
 			A: [],
 			B: [],
 			C: [],
 		};
 		
-// State of score used to update UI
 		this.setState({
 			A: 0,
 			B: 0,
@@ -181,6 +179,7 @@ class GameMananger extends Component {
 		});
 	}
 
+//callculates winning hand
 	renderWinner(){
 
 		const players = this.players;
@@ -199,6 +198,8 @@ class GameMananger extends Component {
 				}
 			}	
 		}
+
+//alert to demonstrate the outcome of the game		
 		swal({
 			  title: "Winner!",
 			  text: `winner is Player ${winningPlayer.player} with a score of ${winningPlayer.score}!`,
@@ -208,11 +209,13 @@ class GameMananger extends Component {
 	}
 
 	render() {
+//if all players are ready to begin round, call roundSetup		
 		if (this.turnsNeeded === 0) {
 			this.roundSetup();
 
+//if we should not play another round due to a winning hand of 21, or 2 out of 3 player's score > 21
 		} else if (this.turnsNeeded === -1) {
-			// Calc for winner....
+// Calc for winner
 			this.renderWinner();
 		}
 

@@ -20,11 +20,9 @@ class Player extends Component {
 		);
 		return (
 			<div className = {`player-${this.props.id}-container`}>
-
-			<div className = 'player-name-container'> Player {this.props.id} </div>
-			<div className = 'player-score-container'>  Score:{this.props.score} </div>
-			<div className = 'cards-container' />
-
+				<div className = 'player-name-container'> Player {this.props.id} </div>
+				<div className = 'player-score-container'>  Score:{this.props.score} </div>
+				<div className = 'cards-container'/>
 				 <ul>{listItems}</ul>
 			</div>
 			);

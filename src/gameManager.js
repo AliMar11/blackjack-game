@@ -202,7 +202,7 @@ class GameMananger extends Component {
 //alert to demonstrate the outcome of the game		
 		swal({
 			  title: "Winner!",
-			  text: `winner is Player ${winningPlayer.player} with a score of ${winningPlayer.score}!`,
+			  text: `The winner is Player ${winningPlayer.player} with a score of ${winningPlayer.score}!`,
 			  button: "Ok",
 			});
 

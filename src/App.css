@@ -16,36 +16,60 @@ background-position:0 0, 40px 40px;
 .title-container{
   position: relative;
   width:100%;
-  margin-left: 12%;
+  /*margin-left: 12%;*/
   text-align: center;
   font-size: 3vw;
   font-family: Impact, Charcoal, sans-serif;
 }
 
 .oval-table-container{
+
   position: relative;
-  margin-left: 12%;
+  margin: auto;
   height: 700px;
   width: 1000px;
   background-color: #228B22;
   border-radius: 50%;
+  border: 5px solid gold;
+}
+
+.oval-table-container:before 
+{
+    content:"";
+    /*display:block;*/
+    position:absolute;
+    margin: auto;
+    height:650px;
+    width: 950px;
+    border-radius: 50%;
+    z-index:1;
+    top:2px;
+    left:2px;
+    right:2px;
+    bottom:2px;
+    border:1.5px solid darkgreen;
 }
 
 .app-container{
   display: inline-block;
-  text-align: center;  
+  text-align: center; 
+  width: 100%; 
 }
 
 .button-container{
-    position: absolute;
-    display: inline-block;
-    top: 39%;
-    width: 80px;  
-    height: 40px;
-    left: 42%;
-    font-family: Impact, Charcoal, sans-serif;
-    font-size: 1.2vw;
-    border-radius: 2px;
+position: absolute;
+   margin: auto;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   width: 30%;
+   height: 22%;
+   white-space: nowrap;
+   font-family: Impact,Charcoal,sans-serif;
+   font-size: 1.2vw;
+   border-radius: 2px;
+   z-index: 3
 }
 
 .card-image-container{
@@ -64,7 +88,7 @@ background-position:0 0, 40px 40px;
   position: absolute;
   transform: rotate(90deg);
   left: 107px;
-    top: 269px;
+  top: 290px;
 } 
 
 .player-B-container{
@@ -73,14 +97,14 @@ background-position:0 0, 40px 40px;
     margin-right: auto;
     left: 0;
     right: 0;
-    top: 50px;
+    top: 80px;
 } 
 
 .player-C-container{
   position: absolute;
   transform: rotate(-90deg);
   right: 107px;
-    top: 269px;
+    top: 300px;
 }  
 
 .player-name-container{

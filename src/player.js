@@ -5,10 +5,6 @@ const handValue = constant.cardValue;
 
 class Player extends Component {
 
-	constructor(props){
-		super(props);
-	}
-
 	handleCardImage(card) {
 		return handValue[card].url;
 	}
@@ -16,7 +12,11 @@ class Player extends Component {
 	render() {
 
 		const listItems = this.props.hand.map((card) =>
-  			<li key={card} className='card-image-container'><div><img src={this.handleCardImage(card)} /></div></li>
+  			<li key={card} className='card-image-container'>
+  				<div>
+  					<img src={this.handleCardImage(card)}/>
+  				</div>
+  			</li>
 		);
 		return (
 			<div className = {`player-${this.props.id}-container`}>

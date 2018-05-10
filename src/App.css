@@ -1,8 +1,8 @@
 body{
-background-color: #bc1010 !important; 
+background-color: #900000 !important; 
 background-color:#def;
-background-image: radial-gradient(closest-side, transparent 98%, rgba(171,15,11) 99%),
-radial-gradient(closest-side, transparent 98%, rgba(171,15,11) 99%);
+background-image: radial-gradient(closest-side, transparent 98%, rgba(128,0,0) 99%),
+radial-gradient(closest-side, transparent 98%, rgba(128,0,0) 99%);
 background-size:80px 80px;
 background-position:0 0, 40px 40px;
 }
@@ -16,14 +16,12 @@ background-position:0 0, 40px 40px;
 .title-container{
   position: relative;
   width:100%;
-  /*margin-left: 12%;*/
   text-align: center;
   font-size: 3vw;
   font-family: Impact, Charcoal, sans-serif;
 }
 
 .oval-table-container{
-
   position: relative;
   margin: auto;
   height: 700px;
@@ -36,7 +34,6 @@ background-position:0 0, 40px 40px;
 .oval-table-container:before 
 {
     content:"";
-    /*display:block;*/
     position:absolute;
     margin: auto;
     height:650px;
@@ -77,7 +74,7 @@ position: absolute;
   text-align: center;
 }
 
-.card-image-container img {
+.card-image-container img{
   width: 60px;
   padding-bottom: 10px;
   padding-right: 3px;
